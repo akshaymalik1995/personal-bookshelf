@@ -4,7 +4,8 @@ import searchReducer from "../features/search/searchSlice";
 import { addToShelf } from "../features/shelf/shelfSlice";
 import { removeFromShelf } from "../features/shelf/shelfSlice";
 
-const shelfMiddleware = (store) => next => action => {
+
+const shelfMiddleware = (store : any) => (next : any) => (action : any) => {
     if (action.type === "shelf/addToShelf") {
         try {
             localStorage.setItem("shelf", JSON.stringify(shelfReducer(store.getState().shelf, addToShelf(action.payload))))
