@@ -1,17 +1,27 @@
-
-import { useSelector } from "react-redux"
-import { IStore } from "../../app/types"
-import { updateInputValue } from "./searchSlice"
-import { useDispatch } from "react-redux"
 import Spinner from "./components/Spinner"
+import { useEffect, useState } from "react"
 export default function Form(props: {queryOn : Boolean, onInputChange: (value: string) => void }) {
     const { onInputChange , queryOn} = props
-    const dispatch = useDispatch()
-    const inputValue = useSelector((state: IStore) => state.search.inputValue)
+    const [inputValue, setInputValue ]= useState("")
+    const [debouncedInputValue, setDebouncedInputValue] = useState("");
+
     function handleInput(value: string) {
-        dispatch(updateInputValue(value))
-        onInputChange(value)
+        setInputValue(value)
     }
+
+
+    useEffect(() => {
+        const timeout = setTimeout(() => {
+            setDebouncedInputValue(inputValue)
+        }, 500)
+
+        return () => clearTimeout(timeout)
+    }, [inputValue])
+
+    useEffect(() => {
+        onInputChange(debouncedInputValue)
+    }, [debouncedInputValue])
+
     return (
         <>
             {/* A input form to send request to the api */}

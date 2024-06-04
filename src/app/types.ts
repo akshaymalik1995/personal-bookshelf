@@ -7,7 +7,6 @@ export interface IBook {
 }
 
 export interface ISearchState {
-    inputValue: string,
     results: IBook[] | []
 }
 
