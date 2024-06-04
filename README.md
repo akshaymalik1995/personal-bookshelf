@@ -1,30 +1,65 @@
-# React + TypeScript + Vite
+**personal-bookshelf**
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This React application with TypeScript and Vite allows you to manage your virtual bookshelf. Search for books using the OpenLibrary API and add them to your personal collection, which is stored in localStorage.
 
-Currently, two official plugins are available:
+**Features:**
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **Book Search:** Utilize the OpenLibrary API to find books by title or author.
+- **Book Details:** View information about each book, including title, authors, and publication date.
+- **Bookshelf Management:** Add books to your personal bookshelf, persisting them in localStorage for a seamless user experience.
+- **Built with Modern Technologies:** Leverages the speed and efficiency of React, Redux Toolkit, TypeScript for type safety, and Vite for a smooth development experience.
 
-## Expanding the ESLint configuration
+**Getting Started**
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. **Prerequisites:**
+   - Node.js (version 14 or later): [https://nodejs.org/en/download/package-manager](https://nodejs.org/en/download/package-manager)
+   - npm (or yarn): [https://www.npmjs.com/](https://www.npmjs.com/)
 
-- Configure the top-level `parserOptions` property like this:
+2. **Clone the Repository:**
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+   ```bash
+   git clone https://github.com/akshaymalik1995/personal-bookshelf.git
+   ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+3. **Install Dependencies:**
+
+   ```bash
+   cd personal-bookshelf
+   npm install
+   ``` (or `yarn install`)
+
+4. **Run the Development Server:**
+
+   ```bash
+   npm run dev
+   ``` (or `yarn dev`)
+
+   This will start the development server at `http://localhost:5173` by default.
+
+**Using the Application**
+
+1. **Search for Books:** Enter a title, author search bar. Results will be displayed below.
+2. **Add Books to Bookshelf:** Click the "Add to Bookshelf" button next to a book to add it to your personal collection. Added books are stored in localStorage and persist across sessions.
+
+**Tech Stack**
+
+- React: [https://react.dev/](https://react.dev/)
+- Redux Toolkit: [https://redux-toolkit.js.org/](https://redux-toolkit.js.org/)
+- TypeScript: [https://www.typescriptlang.org/](https://www.typescriptlang.org/)
+- Vite: [https://vitejs.dev/](https://vitejs.dev/)
+- OpenLibrary API: [https://openlibrary.org/help/faq](https://openlibrary.org/help/faq)
+
+**Local Storage Persistence**
+
+The application utilizes localStorage to store your bookshelf data. This enables the app to retain your added books even after refreshing the page or closing the browser window.
+
+**Future Considerations**
+
+- Implement user authentication to allow for a more personalized bookshelf experience.
+- Enhance the UI with book filtering and sorting options.
+- Integrate with external services to retrieve detailed book reviews or recommendations.
+
+**Contributing**
+
+We welcome contributions to this project! Please feel free to fork the repository, create a pull request, and share your improvements.
+
