@@ -15,8 +15,8 @@ const Query = memo(function () {
         if (!input) return
         setQueryOn(true)
         const data = await getBooks(input)
+
         if (data && "docs" in data) {
-            console.log(data)
             dispatch(updateResults(data.docs))
         }
         setQueryOn(false)
