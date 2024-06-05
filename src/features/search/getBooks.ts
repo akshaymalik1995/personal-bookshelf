@@ -1,8 +1,8 @@
 
-export default async function getBooks(query: string) {
+export default async function getBooks(query: string, signal : any) {
     const url = `https://openlibrary.org/search.json?q=${encodeURIComponent(query)}&limit=10&page=1`;
     try {
-        const response = await fetch(url);
+        const response = await fetch(url, {signal});
         if (!response.ok) {
             throw new Error(`Failed to fetch books: ${response.statusText}`);
         }
@@ -12,6 +12,11 @@ export default async function getBooks(query: string) {
        
         return data;
     } catch (error) {
-        console.error(error)
+        if (error instanceof Error && 'name' in error && error.name === "AbortError") {
+            console.error("The previous request got aborted")
+        } else {
+            console.error(error)
+        }
+        
     }
 }
